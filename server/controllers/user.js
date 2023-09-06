@@ -104,7 +104,7 @@ exports.getImageBySearch = async (req, res) => {
     const { searchQuery } = req.query;
     try {
       const title = new RegExp(searchQuery, "i");
-      // Replace 'TourModal' with the actual model you're using for tours
+     console.log("serachhhh...")
       const images = await Image.find({ title });
       res.json(images);
     } catch (error) {
