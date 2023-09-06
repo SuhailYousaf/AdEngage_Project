@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+require('dotenv').config();
+dotenv.config();
 const app = express();
+dotenv.config();
 
 const userRouter = require('./routes/user.js');
 
@@ -19,10 +23,10 @@ app.use(cookieParser());
 app.use('/', userRouter);
 
 
-const mongoURI ='mongodb://0.0.0.0:27017/AdEngage';
+
 
 mongoose
-  .connect(mongoURI, {
+  .connect(process.env.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
