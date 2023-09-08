@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <section className='home'>
       <div className='overlay'></div>
-      <img src="https://images.pexels.com/photos/3128311/pexels-photo-3128311.jpeg" alt="Image description"  />
+      <img src="https://images.unsplash.com/photo-1604940500627-d3f44d1d21c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Image description"  />
       <div className='homeContent container'>
         <div className='textDiv'>
           <span data-aos='fade-up' className='smallText'>

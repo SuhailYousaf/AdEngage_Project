@@ -28,3 +28,51 @@
     color: #fff;
   }
   
+  /* Custom radio button styles */
+.color-radio-input {
+  display: none; /* Hide the default radio input */
+}
+/* Add margin between radio buttons */
+
+
+
+.color-radio-label1 {
+  margin-right: 10px; 
+  display: inline-block;
+  width: 25px; /* Adjust the size of the radio button container */
+  height: 25px; /* Adjust the size of the radio button container */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  background-color: #e01e1e; /* Default background color */
+}
+
+.color-radio-label2 {
+  margin-right: 10px; 
+  display: inline-block;
+  width: 25px; /* Adjust the size of the radio button container */
+  height: 25px; /* Adjust the size of the radio button container */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  background-color: #169205; /* Default background color */
+}
+.color-radio-label3 {
+  margin-right: 10px; 
+  display: inline-block;
+  width: 25px; /* Adjust the size of the radio button container */
+  height: 25px; /* Adjust the size of the radio button container */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  background-color: #1542d8; /* Default background color */
+}
+
+.color-radio-label4 {
+  margin-right: 10px; 
+  display: inline-block;
+  width: 25px; /* Adjust the size of the radio button container */
+  height: 25px; /* Adjust the size of the radio button container */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  background-color: #f0ec23; /* Default background color */
+}
+
+

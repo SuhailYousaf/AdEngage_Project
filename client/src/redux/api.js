@@ -17,4 +17,5 @@ export const signUp = (formData) => API.post("/register", formData)
 export const createImage = (imageData) => API.post('/createImage', imageData)
 export const getImages = () => API.get('/getImages')
 export const getImage = (id) => API.get(`/getImage/${id}`);
-export const getImagesBySearch = (searchQuery) => API.get(`/image/search?searchQuery=${searchQuery}`);
+export const getImagesBySearchAndColor = (searchQuery, selectedColor) =>
+  API.get(`/image/search?searchQuery=${searchQuery}&color=${selectedColor}`);

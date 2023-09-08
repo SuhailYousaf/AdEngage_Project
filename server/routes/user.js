@@ -15,7 +15,7 @@ router.get('/getImages', userController.getImages)
 
 router.get('/getImage/:id', userController.getImage)
 
-router.get('/search',userController.getImageBySearch)
+router.get('/image/search', userController.getImageBySearch);
 
 
 

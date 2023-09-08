@@ -6,6 +6,7 @@ const imageSchema = new Schema({
     description: String,
     price: String,
     name: String,
+    colour:String,
     Creator: String,
     tags: [String],
     imageFile: [String], // Store multiple image file paths in an array of strings

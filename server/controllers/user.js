@@ -60,7 +60,8 @@ exports.userLogin = async (req, res) => {
 
 exports.createImage = async (req, res) => {
     const image = req.body;
-   
+   console.log("detail"+ image.title)
+   console.log("colour..."+ image.colour)
     const newImage = new Image({
         ...image,
         Creator: req.userId,
@@ -99,18 +100,33 @@ exports.getImage=async (req,res)=>{
         res.status(404).json({message:"something went wrong" })
     }
 };
-
 exports.getImageBySearch = async (req, res) => {
-    const { searchQuery } = req.query;
+    const { searchQuery, color } = req.query;
+  
     try {
-      const title = new RegExp(searchQuery, "i");
-     console.log("serachhhh...")
-      const images = await Image.find({ title });
+      // Create a filter object based on searchQuery and color
+      const filter = {};
+  
+      // Add search query filter if searchQuery is provided
+      if (searchQuery) {
+        filter.title = new RegExp(searchQuery, "i");
+      }
+  
+      // Add color filter if color is provided
+      if (color) {
+        filter.colour = color; // Assuming the field in your database is named "color"
+        console.log("colour.."+filter.colour)
+      }
+  
+      // Use the filter object to query the database
+      const images = await Image.find(filter);
+       console.log("images"+images)
       res.json(images);
     } catch (error) {
-      res.status(404).json({ message: "Something went wrong" });
+      res.status(500).json({ message: "Something went wrong" });
     }
-};
+  };
+  
 
 
 

@@ -38,29 +38,67 @@ export const getImage = createAsyncThunk(
     }
   );
 
+  // export const searchImages = createAsyncThunk(
+  //   "image/searchImages",
+  //   async (searchQuery, { rejectWithValue }) => {
+  //     try {
+  //       const response = await api.getImagesBySearch(searchQuery);
+  //       return response.data;
+  //     } catch (err) {
+  //       return rejectWithValue(err.response.data);
+  //     }
+  //   }
+  // );
+  // export const searchImages = createAsyncThunk(
+  //   'image/searchImages',
+  //   async ({ searchQuery, selectedColor }, { rejectWithValue }) => {
+  //     try {
+  //       // Debug: Log the payload before making the API request
+  //       console.log('Search Query in Action:', searchQuery);
+  //       console.log('Selected Color in Action:', selectedColor);
+  
+  //       // Rest of the code...
+  //     } catch (err) {
+  //       return rejectWithValue(err.response.data);
+  //     }
+  //   }
+  // );
+
   export const searchImages = createAsyncThunk(
     "image/searchImages",
-    async (searchQuery, { rejectWithValue }) => {
+    async ({ searchQuery, selectedColor }, { rejectWithValue }) => {
       try {
-        const response = await api.getImagesBySearch(searchQuery);
+        // Make an API request to fetch images based on both search query and color
+
+              console.log('Search Query in Action:', searchQuery);
+              console.log('Selected Color in Action:', selectedColor);
+        const response = await api.getImagesBySearchAndColor(
+          searchQuery,
+          selectedColor
+        );
+       
+
         return response.data;
       } catch (err) {
         return rejectWithValue(err.response.data);
       }
     }
   );
+  
 
 
 
 const imageSlice = createSlice({
     name: 'image',
     initialState: {
-        image: {},
-        images: [],
-        userImages:[],
-        error: "",
-        loading: false,
+      image: {},
+      images: [], // Initialize as an empty array
+      userImages: [],
+      error: "",
+      selectedColor: "",
+      loading: false,
     },
+    
     extraReducers: {
         [createImage.pending]: (state, action) => {
             state.loading = true
@@ -77,8 +115,8 @@ const imageSlice = createSlice({
             state.loading = true
         },
         [getImages.fulfilled]: (state, action) => {
-            state.loading = false
-            state.images=action.payload;
+          state.loading = false;
+          state.images = action.payload; // Update images with new data
         },
         [getImages.rejected]: (state, action) => {
             state.loading = false
@@ -100,7 +138,7 @@ const imageSlice = createSlice({
           },
           [searchImages.fulfilled]: (state, action) => {
             state.loading = false;
-            state.images = action.payload;
+            state.images = action.payload; // Update images with search results
           },
           [searchImages.rejected]: (state, action) => {
             state.loading = false;

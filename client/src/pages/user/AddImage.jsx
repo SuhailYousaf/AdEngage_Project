@@ -11,6 +11,7 @@ import { createImage } from '../../redux/features/imageSlice'
 
 const initialState = {
     title: "",
+    colour:"",
     description: "",
     tags:[],
 }
@@ -20,7 +21,7 @@ const AddImage = () => {
     const { error, loading } = useSelector((state) => ({ ...state.image }))
     const { user } = useSelector((state) => ({ ...state.auth }))
 
-    const { title, description, tags } = imageData
+    const { title,colour, description, tags } = imageData
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -30,7 +31,8 @@ const AddImage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (title && description && tags) {
+        if (title && colour&& description && tags) {
+            console.log("imagedata"+imageData)
             const updatedImageData = { ...imageData, name: user?.name }
             dispatch(createImage({ updatedImageData, navigate, toast }))
             handleClear()
@@ -58,7 +60,7 @@ const AddImage = () => {
 
 
     const handleClear = () => {
-        setImageData({ title: "", description: "", tags: [] })
+        setImageData({ title: "", colour:"", description: "", tags: [] })
     }
 
 
@@ -87,6 +89,24 @@ const AddImage = () => {
                             />
 
                         </div>
+
+                        <div className='col-md-12'>
+                        <input
+                            placeholder='colour'
+                            type='text'
+                            value={colour}
+                            name='colour'
+                            onChange={onInputChange}
+                            className='form-control'
+                            required
+                            invalid
+                            validation="please provide colour"
+
+
+
+                        />
+
+                    </div>
                         <div className='col-md-12'>
                             <textarea
                                 placeholder='description'

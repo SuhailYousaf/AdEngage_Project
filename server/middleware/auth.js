@@ -4,7 +4,7 @@ const secret = 'sakdfnsadklfnasdgsdfgsdgfg'; // Replace with your actual secret
 const auth = async (req, res, next) => {
     console.log("Authentication middleware");
     try {
-        // Check if there's an authorization header and extract the token
+       
         const token = req.headers.authorization?.split(" ")[1];
 
         if (!token) {
