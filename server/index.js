@@ -8,7 +8,7 @@ require('dotenv').config();
 dotenv.config();
 const app = express();
 dotenv.config();
-const port = process.env.PORT
+
 const userRouter = require('./routes/user.js');
 
 app.use(cors());
@@ -37,6 +37,6 @@ mongoose
     console.error('Error connecting to MongoDB:', err);
   });
 
-app.listen(port, () => {
+app.listen(4000, () => {
   console.log('Server is running on port 4000');
 });
