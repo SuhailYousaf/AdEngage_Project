@@ -62,9 +62,10 @@ const authSlice = createSlice({
 
         },
         [login.rejected]: (state, action) => {
-            state.loading = false
-            state.error = action.payload.message
+            state.loading = false;
+            state.error = action.payload ? action.payload.message : "Unknown error";
         },
+        
         [register.pending]: (state, action) => {
             state.loading = true
         },
