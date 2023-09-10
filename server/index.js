@@ -23,10 +23,9 @@ app.use(cookieParser());
 app.use('/', userRouter);
 
 
-mongoURI ='mongodb://0.0.0.0:27017/AdEngage'
 
 mongoose
-  .connect(mongoURI, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
