@@ -1,5 +1,5 @@
 import axios from "axios"
-const API = axios.create({ baseURL: "http://localhost:4000" })
+const API = axios.create({ baseURL: "https://adengage.onrender.com" })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("profile")) {
